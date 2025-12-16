@@ -1,3 +1,4 @@
+import { websiteName } from "@/config";
 import React, { useState, useEffect } from "react";
 
 const TermsAndServices = () => {
@@ -26,7 +27,7 @@ const TermsAndServices = () => {
       <div className="bg-gradient-to-r from-gray-800 to-gray-900 text-white text-center py-16 px-4">
         <h1 className="text-5xl font-extrabold text-yellow-600">TERMS & SERVICES</h1>
         <p className="mt-4 text-lg max-w-3xl mx-auto opacity-90">
-          Understand the terms and conditions for using our services at  MIC: E-Learning.
+          Understand the terms and conditions for using our services at  {websiteName}.
         </p>
         <button
           className="mt-6 bg-white dark:bg-gray-700 text-blue-600 dark:text-white px-6 py-3 rounded-lg shadow-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-all"
@@ -41,7 +42,7 @@ const TermsAndServices = () => {
         <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
           <h2 className="text-3xl font-bold text-gray-800 dark:text-white">Acceptance of Terms</h2>
           <p className="mt-4 text-gray-700 dark:text-gray-300">
-            By using  MIC: E-Learning, you agree to abide by our terms and conditions. Any violations may result in restricted access to our platform.
+            By using  {websiteName}, you agree to abide by our terms and conditions. Any violations may result in restricted access to our platform.
           </p>
         </div>
 
@@ -55,14 +56,14 @@ const TermsAndServices = () => {
         <div className="mt-8 bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
           <h2 className="text-3xl font-bold text-gray-800 dark:text-white">Service Modifications</h2>
           <p className="mt-4 text-gray-700 dark:text-gray-300">
-            MIC: E-Learning reserves the right to modify, suspend, or discontinue any service at any time without prior notice.
+            {websiteName} reserves the right to modify, suspend, or discontinue any service at any time without prior notice.
           </p>
         </div>
       </div>
 
       {/* Footer */}
       <footer className="bg-gradient-to-r from-gray-800 to-gray-900 text-white text-center py-6 mt-16">
-        <p className="text-lg">&copy; 2025  MIC: E-Learning. All rights reserved.</p>
+        <p className="text-lg">&copy; {websiteName}. All rights reserved.</p>
       </footer>
     </div>
   );

@@ -5,6 +5,7 @@ import { Button } from "../ui/button";
 import { AuthContext } from "@/context/auth-context";
 import CustomProfile from "../../../public/user.png";
 import { Card, CardHeader, CardContent, CardTitle } from "../ui/card";
+import { websiteName } from "@/config";
 
 function StudentViewCommonHeader() {
   const navigate = useNavigate();
@@ -61,7 +62,7 @@ function StudentViewCommonHeader() {
         <span onClick={()=>handleButtonNavigation({link:"/home"})} className="flex items-center hover:cursor-pointer hover:text-yellow-600">
           <GraduationCap className="h-8 w-8 mr-4 " />
           <span className="font-extrabold md:text-xl text-[14px]">
-          MIC: E-LEARNING
+          {websiteName}
           </span>
           {/* <Plus strokeWidth={4} /> */}
         </span>

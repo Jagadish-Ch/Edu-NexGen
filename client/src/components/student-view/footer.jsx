@@ -2,7 +2,8 @@ import React from 'react';
 import { clamp } from 'framer-motion';
 
 import img1 from '../../../public/LogoBgNone.png';
-import LogoMIC from '../../../public/logo-small.png';
+import Logo from '../../../public/logo-small.png';
+import { websiteName } from '@/config';
 
 const StudentViewCommonFooter = () => {
     const footerData = [
@@ -26,7 +27,7 @@ const StudentViewCommonFooter = () => {
         <section className='container justify-between items-center mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 p-[30px]'>
         <div className='overflow-clip p-1 rounded-lg place-self-center md:place-self-start bg-gradient-to-tr from-blue-600 to-red-700'>
           <div className='bg-blacks flex animate-infinite-scrolls'>
-            <img src={LogoMIC} className='bg-white h-28 w-auto rounded-lg brightness-150 '/>
+            <img src={Logo} className='bg-white h-28 w-auto rounded-lg brightness-150 '/>
           </div>
         </div>
         {sections.map((section, index) => (
@@ -53,7 +54,7 @@ const StudentViewCommonFooter = () => {
         </section>
 
         <section className='text-center pb-[30px] text-yellow-500'>
-            <p style={{fontSize:clamp("0.8rem", "0.5rem" + "1vw", "1.2rem")}}> Copyright &#169; 2025 MIC: E-LEARNING. All rights reserved.</p>
+            <p style={{fontSize:clamp("0.8rem", "0.5rem" + "1vw", "1.2rem")}}> Copyright &#169; {websiteName}. All rights reserved.</p>
             {/* <p style={{fontSize:clamp("0.8rem", "0.5rem" + "1vw", "1.2rem")}}> Developed by Jagadish Chennuru</p> */}
         </section>
     </div>

@@ -93,6 +93,7 @@
 
 // export default AboutUs;
 
+import { websiteName } from "@/config";
 import React, { useState, useEffect } from "react";
 
 const AboutUs = () => {
@@ -104,17 +105,17 @@ const AboutUs = () => {
                 role: "Full-Stack Development",
             },
             {
-                name:"Kiranmaye",
+                name:"Sivaganesh",
                 role: "Frontend Development",
             },
-            {
-                name:"Naga Sai Teja",
-                role: "Testing",
-            },
-            {
-                name:"Gopal Rao",
-                role: "Documentation",
-            },
+            // {
+            //     name:"Naga Sai Teja",
+            //     role: "Testing",
+            // },
+            // {
+            //     name:"Gopal Rao",
+            //     role: "Documentation",
+            // },
         ];
 
   useEffect(() => {
@@ -140,7 +141,7 @@ const AboutUs = () => {
       <div className="bg-gradient-to-r from-gray-800 to-gray-900 text-white text-center py-16 px-4">
         <h1 className="text-5xl font-extrabold text-yellow-600">ABOUT US</h1>
         <p className="mt-4 text-lg max-w-3xl mx-auto opacity-90">
-          MIC: E-Learning is committed to providing high-quality learning experiences through innovative technology.
+          {websiteName} is committed to providing high-quality learning experiences through innovative technology.
         </p>
         <button
           className="mt-6 bg-white dark:bg-gray-700 text-blue-600 dark:text-white px-6 py-3 rounded-lg shadow-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-all"
@@ -187,7 +188,7 @@ const AboutUs = () => {
 
       {/* Footer */}
       <footer className="bg-gradient-to-r from-gray-800 to-gray-900 text-white text-center py-6 mt-16">
-        <p className="text-lg">&copy; 2025  MIC: E-Learning. All rights reserved.</p>
+        <p className="text-lg">&copy; {websiteName}. All rights reserved.</p>
       </footer>
     </div>
   );

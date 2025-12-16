@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ProfileSettings from '../profile-settings/ProfileSettings';
 import { getStudentDetailsService } from "../../../services";
 
-export const InstructorProfileData = 
-{
+export const InstructorProfileData = {
     img: "https://www.shutterstock.com/image-photo/head-shot-portrait-close-smiling-600nw-1714666150.jpg",
     name: "Jaga",
     role: "Instructor",

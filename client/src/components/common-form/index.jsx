@@ -1,6 +1,10 @@
 import { initialOtherSignUpFormData } from "@/config";
 import { Button } from "../ui/button";
+import Spinner from "../ui/Spinner";
 import FormControls from "./form-controls";
+import { useContext } from "react";
+import { AuthContext } from "@/context/auth-context";
+
 
 function CommonForm({
   pageLocation,
@@ -10,9 +14,14 @@ function CommonForm({
   formData,
   setFormData,
   isButtonDisabled = false,
-  loading,
+  
+  // loading,
 }) {
   console.log("Form data : ", formData)
+
+  const {
+      loading
+    } = useContext(AuthContext);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -24,8 +33,8 @@ function CommonForm({
         formData={formData}
         setFormData={setFormData}
       />
-      <Button disabled={isButtonDisabled} type="submit" className="mt-5 w-full">
-        {buttonText}
+      <Button disabled={loading | isButtonDisabled} type="submit" className="mt-5 w-full">
+        {loading? "Loading..." : buttonText}
       </Button>
     </form>
   );

@@ -4,6 +4,7 @@ import InstructorRevenueOnCourses from "@/components/instructor-view/courses-rev
 import InstructorDashboard from "@/components/instructor-view/dashboard";
 import StudentsList from "@/components/instructor-view/users-list";
 import InstructorProfile from "@/components/profile/instructor-profile";
+import Spinner from "@/components/ui/CommetLoader";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
 import { AuthContext } from "@/context/auth-context";
@@ -49,8 +50,10 @@ function InstructorDashboardpage({ loginDetails }) {
   } = useContext(InstructorContext);
   const { darkMode, setDarkMode } = useDarkMode();
   const [hideSidebar, setHideSideBar] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   async function fetchInstructorDashboardData() {
+    setLoading(true);
     const response = await fetchInstructorDashboardDataService(
       reqType.toLowerCase() || "enrolled",
       filterDegree
@@ -60,21 +63,28 @@ function InstructorDashboardpage({ loginDetails }) {
       setInstructorDashboardData(response?.data);
       setInstructorDashboardResMessage(response?.message);
     }
+    setLoading(false);
   }
 
   async function fetchAllCourses() {
+    setLoading(true);
     const response = await fetchInstructorCourseListService();
     if (response?.success) setInstructorCoursesList(response?.data);
+    setLoading(false);
   }
 
   async function fetchAllRecommnededCourses() {
+    setLoading(true);
     const response = await getRecommendCoursesService("user");
     if (response?.success) setAllRecommendedCoursesList(response?.data);
+    setLoading(false);
   }
 
   async function fetchAllUsersList() {
+    setLoading(true);
     const response = await getAllUsersDetailsService("user");
     if (response?.success) setAllUsersList(response?.data);
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -191,6 +201,7 @@ function InstructorDashboardpage({ loginDetails }) {
   }
 
   return (
+    <div>
     <div className="flex-1 md:flex flex-wrap overflow-auto bg-gray-100 dark:bg-slate-900 animate-appear duration-500">
       <aside
         className={`${
@@ -285,6 +296,8 @@ function InstructorDashboardpage({ loginDetails }) {
           </Tabs>
         </div>
       </main>
+    </div>
+      {loading? <Spinner/> : <></>}
     </div>
   );
 }

@@ -1,3 +1,5 @@
+export const websiteName = "Edu-NexGen";
+
 export const roleTypeOptions = [
   { id:"user", label:"User" },
   { id:"instructor", label:"Instructor" },

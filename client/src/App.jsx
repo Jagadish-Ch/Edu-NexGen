@@ -28,6 +28,9 @@ import AboutUs from "./pages/footer-pages/AboutUs";
 import PrivacyPolicy from "./pages/footer-pages/PrivacyPolicy";
 import TermsOfService from "./pages/footer-pages/TermsOfService";
 import TipTapBubbleEditor from "./components/certificate-generator2/TipTapBubbleEditor";
+import GuestLogin from "./pages/guest-login";
+import PublicHomePage from "./pages/home"
+import GuestLoginPage from "./pages/guest-login";
 // import CanvasComponent from "./components/certificate-generator/Components/CanvasComponent";
 
 function App() {
@@ -39,6 +42,11 @@ function App() {
     <div>
       <Routes>
         <Route
+          path="/public"
+          element={<PublicHomePage/>}
+        />
+
+        <Route
           path="/auth"
           element={
             <RouteGuard
@@ -48,9 +56,22 @@ function App() {
             />
           }
         />
-        <Route path="/footer" element={<StudentViewCommonFooter/>}/>
+
         <Route
-          path="/instructor"
+          path="/guest-login"
+          element= {
+            <RouteGuard
+              element={<GuestLoginPage />}
+              authenticated={auth?.authenticate}
+              user={auth?.user}
+            />
+          }
+        />
+
+        <Route path="/footer" element={<StudentViewCommonFooter/>}/>
+
+        <Route
+          path="/instructor" // change to /creator or /studio
           element={
             <RouteGuard
               element={<InstructorDashboardpage loginDetails={auth?.user} />}
@@ -59,7 +80,8 @@ function App() {
             />
           }
         />
-        <Route
+        
+        {/* <Route
           path="/certificate-generator"
           element={<CertificateGenerator />}
         />
@@ -71,10 +93,11 @@ function App() {
         <Route path="/admin-setup" element={<TipTapBubbleEditor/>} />
         <Route path="/bubble-editor" element={<BubbleEditor/>
         } />
-        <Route path="/user-page" element={<CertificatePage />} />
+        <Route path="/user-page" element={<CertificatePage />} /> */}
         {/* <Route path="/upload-youtube-playlist" element={<ExtractYouTubeVideoPlaylistId/>}/> */}
         {/* <Route path="/course-recommendation-form" element={<CourseRecommendationForm/>}/>
-      <Route path="/progress" element={<StudentViewCourseProgressPage/>}/> */}
+        <Route path="/progress" element={<StudentViewCourseProgressPage/>}/> */}
+
         <Route
           path="/instructor/create-new-course"
           element={
@@ -142,19 +165,18 @@ function App() {
             />
           }
         >
-          <Route path="" element={<StudentHomePage />} />
-          <Route path="home" element={<StudentHomePage />} />
-          <Route path="courses" element={<StudentViewCoursesPage />} />
+          <Route path="/home" element={<StudentHomePage />} />
+          <Route path="/courses" element={<StudentViewCoursesPage />} />
           <Route
-            path="recommend-course"
+            path="/recommend-course"
             element={<StudentRecommendedCourse loginDetails={auth?.user} />}
           />
           <Route
-            path="course/details/:id"
+            path="/course/details/:id"
             element={<StudentViewCourseDetailsPage />}
           />
-          <Route path="payment-return" element={<PaypalPaymentReturnPage />} />
-          <Route path="student-courses" element={<StudentCoursesPage />} />
+          <Route path="/payment-return" element={<PaypalPaymentReturnPage />} />
+          <Route path="/student-courses" element={<StudentCoursesPage />} />
           {/* <Route
           path="course-progress/:id"
           element={<StudentViewCourseProgressPage />}
@@ -175,6 +197,7 @@ function App() {
           <Route path="/terms-of-service" element={<TermsOfService/>} />
           
         </Route>
+
         <Route path="/about" element={<AboutUs/>} />
           <Route path="/privacy" element={<PrivacyPolicy/>} />
           <Route path="/terms" element={<TermsOfService/>} />

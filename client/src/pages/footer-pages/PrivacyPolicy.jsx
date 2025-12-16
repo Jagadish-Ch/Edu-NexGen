@@ -1,3 +1,4 @@
+import { websiteName } from "@/config";
 import React, { useState, useEffect } from "react";
 
 const PrivacyPolicy = () => {
@@ -62,7 +63,7 @@ const PrivacyPolicy = () => {
 
       {/* Footer */}
       <footer className="bg-gradient-to-r from-gray-800 to-gray-900 text-white text-center py-6 mt-16">
-        <p className="text-lg">&copy; 2025  MIC: E-Learning. All rights reserved.</p>
+        <p className="text-lg">&copy; {websiteName}. All rights reserved.</p>
       </footer>
     </div>
   );
